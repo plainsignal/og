@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Standard SEO Meta Tags -->
+    <title>Open Graph Preview Tool - og.prevue.me</title>
+    <meta name="description" content="Generate, preview, test and optimize Open Graph meta tags for better social media visibility and engagement. Ensure your links look great on all platforms!">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Open Graph Preview Tool - Generate and Test OG Tags Easily">
+    <meta property="og:description" content="Preview your Open Graph tags instantly and optimize your content for maximum engagement on Facebook, LinkedIn, Twitter, Pinterest, Tiktok and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://og.prevue.me">
+    <meta property="og:image" content="https://og.prevue.me/assets/og-preview-tool.png">
+    <meta property="og:image:alt" content="Open Graph Preview Tool Screenshot">
+
+    <!-- Twitter Card Tags for Enhanced Sharing -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Open Graph Preview Tool - Generate and Test OG Tags Easily">
+    <meta name="twitter:description" content="Instantly preview and optimize Open Graph tags for your website. Improve social sharing visibility and engagement.">
+    <meta name="twitter:image" content="https://og.prevue.me/assets/og-preview-tool-twitter.png">
+
+    <!-- Canonical URL for SEO -->
+    <link rel="canonical" href="https://og.prevue.me">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Structured Data (JSON-LD) for Enhanced Search Results -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Open Graph Preview Tool",
+  "alternateName": "OG Preview Generator",
+  "url": "https://og.prevue.me",
+  "description": "Generate, preview, and optimize Open Graph meta tags for enhanced social media visibility.",
+  "applicationCategory": "https://schema.org/WebApplication",
+  "operatingSystem": "All",
+  "image": "https://og.prevue.me/og-preview-tool.png",
+  "audience": {
+    "@type": "Audience",
+    "description": "Marketers, SEO professionals, Developers, Content creators, Agencies, Social media managers"
+  },
+  "inLanguage": "en",
+  "datePublished": "2025-06-14",
+  "version": "1.0.0",
+  "requirements": "Modern web browser"
+}
+    </script>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <h1>OpenGraph Preview Tool</h1>
+                <button class="theme-toggle" id="themeToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2"/>
+                        <path d="M12 20v2"/>
+                        <path d="M4.93 4.93l1.41 1.41"/>
+                        <path d="M17.66 17.66l1.41 1.41"/>
+                        <path d="M2 12h2"/>
+                        <path d="M20 12h2"/>
+                        <path d="M6.34 17.66l-1.41 1.41"/>
+                        <path d="M19.07 4.93l-1.41 1.41"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="header-description">
+                Preview how your content will appear when shared on Twitter, Facebook, LinkedIn, Instagram, TikTok, and Pinterest.
+                Enter a URL or customize the tags manually.
+            </p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Input Section -->
+            <div class="input-section">
+                <!-- URL Fetch Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>
+                            <svg class="header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                            Fetch from URL
+                        </h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="url-input-group">
+                            <input
+                                type="url"
+                                id="urlInput"
+                                class="url-input"
+                                placeholder="https://example.com"
+                            >
+                            <button class="fetch-btn" id="fetchBtn">
+                                <svg id="loadingSpinner" class="btn-icon spinner hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                                </svg>
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7,10 12,15 17,10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                                <span id="fetchBtnText">Fetch</span>
+                            </button>
+                        </div>
+                        <p class="help-text">
+                            Note: Some websites may block cross-origin requests. If fetching fails, you can manually edit the fields below.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Manual Edit Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="inline-flex">Manual Edit</h2>
+                        <div class="action-buttons">
+                            <button class="view-code-btn" id="viewCodeBtn">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                                    <polyline points="16,18 22,12 16,6"/>
+                                    <polyline points="8,6 2,12 8,18"/>
+                                </svg>
+                                View Code
+                            </button>
+
+                            <button class="view-code-btn" id="copyShareURLBtn">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy Sharing URL
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label for="titleInput">Title</label>
+                            <input type="text" id="titleInput" class="form-input" placeholder="Page title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descriptionInput">Description</label>
+                            <textarea id="descriptionInput" class="form-textarea" placeholder="Page description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="imageInput">Image URL</label>
+                            <input type="url" id="imageInput" class="form-input" placeholder="https://example.com/image.jpg">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="urlManualInput">URL</label>
+                            <input type="url" id="urlManualInput" class="form-input" placeholder="https://example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="siteNameInput">Site Name</label>
+                            <input type="text" id="siteNameInput" class="form-input" placeholder="Your Site Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contentType">Content Type</label>
+                            <select id="contentType" class="form-input">
+                                <option value="website">Website</option>
+                                <option value="article">Article</option>
+                                <option value="product">Product</option>
+                            </select>
+                        </div>
+
+                        <!-- Enrichment Fields -->
+                        <div class="enrichment-fields" id="enrichmentFields" style="display: none;">
+                            <h4 class="enrichment-title">Content Enrichments</h4>
+
+                            <div id="articleEnrichment" style="display: none;">
+                                <div class="form-group">
+                                    <label for="articleAuthor">Author</label>
+                                    <input type="text" id="articleAuthor" class="form-input" placeholder="Article author">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="articleSection">Section</label>
+                                    <input type="text" id="articleSection" class="form-input" placeholder="Article section/category">
+                                </div>
+                            </div>
+
+                            <div id="productEnrichment" style="display: none;">
+                                <div class="form-group">
+                                    <label for="productPrice">Price</label>
+                                    <input type="text" id="productPrice" class="form-input" placeholder="19.99">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productCurrency">Currency</label>
+                                    <select id="productCurrency" class="form-input">
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="GBP">GBP</option>
+                                        <option value="CAD">CAD</option>
+                                        <option value="AUD">AUD</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productBrand">Brand</label>
+                                    <input type="text" id="productBrand" class="form-input" placeholder="Brand name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="productAvailability">Availability</label>
+                                    <select id="productAvailability" class="form-input">
+                                        <option value="in stock">In Stock</option>
+                                        <option value="out of stock">Out of Stock</option>
+                                        <option value="preorder">Pre-order</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Social Media Previews</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="tabs">
+                            <div class="tab-list">
+                                <button class="tab-button active" data-tab="twitter">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                    Twitter
+                                </button>
+                                <button class="tab-button" data-tab="facebook">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                    Facebook
+                                </button>
+                                <button class="tab-button" data-tab="linkedin">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                    </svg>
+                                    LinkedIn
+                                </button>
+                                <button class="tab-button" data-tab="instagram">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                    </svg>
+                                    Instagram
+                                </button>
+                                <button class="tab-button" data-tab="tiktok">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z"/>
+                                    </svg>
+                                    TikTok
+                                </button>
+                                <button class="tab-button" data-tab="pinterest">
+                                    <svg class="tab-icon" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001.012.001z"/>
+                                    </svg>
+                                    Pinterest
+                                </button>
+                            </div>
+
+                            <!-- Twitter Preview -->
+                            <div class="tab-content active" id="twitter-tab">
+                                <div class="twitter-preview">
+                                    <div class="twitter-header">
+                                        <div class="twitter-avatar">T</div>
+                                        <div>
+                                            <div style="font-weight: bold; font-size: 14px;">Twitter User</div>
+                                            <div style="color: #6b7280; font-size: 12px;">@twitteruser</div>
+                                        </div>
+                                    </div>
+                                    <div style="padding: 12px;">
+                                        <p style="margin-bottom: 12px; font-size: 14px;">Check out this amazing content! 🚀</p>
+                                        <div class="twitter-card">
+                                            <div class="twitter-card-image">
+                                                <img id="twitterImage" src="" alt="">
+                                            </div>
+                                            <div style="padding: 12px;">
+                                                <div id="twitterDomain" style="color: #6b7280; font-size: 12px; margin-bottom: 4px;"></div>
+                                                <h3 id="twitterTitle" style="font-weight: 600; font-size: 14px; margin-bottom: 4px; color: #111827;"></h3>
+                                                <p id="twitterDescription" style="color: #6b7280; font-size: 12px;"></p>
+                                            </div>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; color: #6b7280; font-size: 12px; margin-top: 12px;">
+                                            <span>💬 12</span>
+                                            <span>🔄 34</span>
+                                            <span>❤️ 156</span>
+                                            <span>📤</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Facebook Preview -->
+                            <div class="tab-content" id="facebook-tab">
+                                <div class="facebook-preview">
+                                    <div class="facebook-header">
+                                        <div class="facebook-avatar">F</div>
+                                        <div>
+                                            <div style="font-weight: 600; font-size: 14px;">Facebook User</div>
+                                            <div style="color: #6b7280; font-size: 12px;">2 hours ago · 🌐</div>
+                                        </div>
+                                    </div>
+                                    <div style="padding: 16px;">
+                                        <p style="margin-bottom: 12px; font-size: 14px;">Just discovered this incredible resource! Worth sharing with everyone 👆</p>
+                                    </div>
+                                    <div class="facebook-card">
+                                        <div class="facebook-card-image">
+                                            <img id="facebookImage" src="" alt="">
+                                        </div>
+                                        <div style="padding: 16px; background: #f8fafc;">
+                                            <div id="facebookDomain" style="color: #6b7280; font-size: 12px; text-transform: uppercase; margin-bottom: 4px;"></div>
+                                            <h3 id="facebookTitle" style="font-weight: 600; font-size: 18px; margin-bottom: 8px; color: #111827;"></h3>
+                                            <p id="facebookDescription" style="color: #6b7280; font-size: 14px;"></p>
+                                        </div>
+                                    </div>
+                                    <div style="border-top: 1px solid #e5e7eb; padding: 12px; display: flex; gap: 24px; color: #6b7280; font-size: 14px;">
+                                        <span style="cursor: pointer;">👍 Like</span>
+                                        <span style="cursor: pointer;">💬 Comment</span>
+                                        <span style="cursor: pointer;">📤 Share</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LinkedIn Preview -->
+                            <div class="tab-content" id="linkedin-tab">
+                                <div class="linkedin-preview">
+                                    <div class="linkedin-header">
+                                        <div class="linkedin-avatar">LI</div>
+                                        <div style="flex: 1;">
+                                            <div style="font-weight: 600; font-size: 14px;">Professional User</div>
+                                            <div style="color: #6b7280; font-size: 12px;">Senior Developer at Tech Company</div>
+                                            <div style="color: #6b7280; font-size: 12px;">3h • 🌐</div>
+                                        </div>
+                                    </div>
+                                    <div style="padding: 0 16px 12px;">
+                                        <p style="font-size: 14px; line-height: 1.5;">
+                                            Excited to share this valuable resource with my network. The insights here are truly game-changing for our industry!
+                                            <br><br>
+                                            What are your thoughts on this topic? I'd love to hear your perspectives in the comments below.
+                                            <br><br>
+                                            #Innovation #Technology #Growth
+                                        </p>
+                                    </div>
+                                    <div style="margin: 0 16px 16px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+                                        <div class="linkedin-card-image">
+                                            <img id="linkedinImage" src="" alt="">
+                                        </div>
+                                        <div style="padding: 16px;">
+                                            <h3 id="linkedinTitle" style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #111827;"></h3>
+                                            <p id="linkedinDescription" style="color: #6b7280; font-size: 14px; margin-bottom: 12px;"></p>
+                                            <div id="linkedinDomain" style="color: #6b7280; font-size: 12px;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="border-top: 1px solid #e5e7eb; padding: 8px 16px; display: flex; gap: 24px; color: #6b7280; font-size: 14px;">
+                                        <span style="cursor: pointer; padding: 8px 0;">👍 Like</span>
+                                        <span style="cursor: pointer; padding: 8px 0;">💬 Comment</span>
+                                        <span style="cursor: pointer; padding: 8px 0;">📤 Share</span>
+                                        <span style="cursor: pointer; padding: 8px 0;">📩 Send</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Instagram Preview -->
+                            <div class="tab-content" id="instagram-tab">
+                                <div class="instagram-preview">
+                                    <div class="instagram-header">
+                                        <div class="instagram-avatar">IG</div>
+                                        <div>
+                                            <div style="font-weight: bold; font-size: 14px;">instagram_user</div>
+                                        </div>
+                                    </div>
+                                    <div style="aspect-ratio: 1; background: #f3f4f6; overflow: hidden;">
+                                        <img id="instagramImage" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="padding: 12px;">
+                                        <p style="font-size: 14px; margin-bottom: 8px;">
+                                            <strong>instagram_user</strong> <span id="instagramTitle"></span>
+                                        </p>
+                                        <p id="instagramDescription" style="color: #6b7280; font-size: 14px; margin-bottom: 8px;"></p>
+                                        <p id="instagramDomain" style="color: #3b82f6; font-size: 14px;"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TikTok Preview -->
+                            <div class="tab-content" id="tiktok-tab">
+                                <div style="background: #000; color: white; border-radius: 12px; overflow: hidden; max-width: 300px; margin: 0 auto;">
+                                    <div style="aspect-ratio: 9/16; background: #111; position: relative; overflow: hidden;">
+                                        <img id="tiktokImage" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                                        <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+                                            <h3 id="tiktokTitle" style="color: white; font-weight: bold; font-size: 16px; margin-bottom: 8px;"></h3>
+                                            <p id="tiktokDescription" style="color: #e5e7eb; font-size: 14px;"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pinterest Preview -->
+                            <div class="tab-content" id="pinterest-tab">
+                                <div style="background: white; border-radius: 16px; overflow: hidden; max-width: 300px; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <div style="aspect-ratio: 2/3; background: #f3f4f6; overflow: hidden;">
+                                        <img id="pinterestImage" src="" alt="" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                    <div style="padding: 16px;">
+                                        <div id="pinterestRichPinBadge" style="display: none; background: #e60023; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-bottom: 8px; width: fit-content;"></div>
+                                        <h3 id="pinterestTitle" style="font-weight: bold; font-size: 16px; margin-bottom: 8px; color: #111827;"></h3>
+                                        <p id="pinterestDescription" style="color: #6b7280; font-size: 14px; margin-bottom: 8px;"></p>
+                                        <div id="pinterestRichPinInfo" style="display: none; font-size: 12px; color: #6b7280; border-top: 1px solid #e5e7eb; padding-top: 8px; margin-top: 8px;"></div>
+                                        <div id="pinterestDomain" style="color: #6b7280; font-size: 12px; font-weight: 500;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code Modal -->
+    <div class="modal hidden" id="codeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>OpenGraph Meta Tags</h3>
+                <button class="close-btn" id="closeModalBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Copy these meta tags and paste them in the &lt;head&gt; section of your HTML:</p>
+                <div class="code-output" id="codeOutput"></div>
+                <button class="copy-btn" id="copyCodeBtn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                    Copy Code
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast hidden" id="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>OpenGraph Preview Tool</h3>
+                <p>The ultimate tool for optimizing your social media presence. Preview how your content appears across all major platforms before sharing.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Other tools</h4>
+                <ul class="footer-links">
+                    <li><a href="https://plainsignal.com/?utm_source=prevue&utm_medium=og&utm_campaign=footer">Simple website analytics</a></li>
+                    <li><a href="https://utmguru.com/?utm_source=prevue&utm_medium=og&utm_campaign=footer">UTM builder</a></li>
+                    <li><a href="https://prevue.me/?utm_source=prevue&utm_medium=og&utm_campaign=footer">Actionable critiques for your webpage</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://x.com/prevueme" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/plainsignal" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/plainsignal" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 prevue.me. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
